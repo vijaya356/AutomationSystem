@@ -1,0 +1,54 @@
+<h3 align="center">Staff Registration</h3>
+<form id="form_login" (ngSubmit)="onSubmit(loginform)" #loginform="ngForm" style="padding-left: 550px">
+  <div class="form-group row">
+    <div class="col-xs-2">
+      <label> Staff Name:</label>
+  <input type="text" class="form-control"  id="staffname" name="staffname" #staffname="ngModel" [(ngModel)]="stafflist.staffname" required pattern="[A-Za-z]{3,20}">
+      <div [hidden]="staffname.valid || staffname.pristine" class="alert alert-danger">Name is invalid</div>
+   </div>
+  </div>
+    <div class="form-group row">
+        <div class="col-xs-2">
+      <label>Subject:</label>
+      <input type="Text" class="form-control" id="subject" name="subject" #subject="ngModel" [(ngModel)]="stafflist.subject" required="[A-Za-z]{3,20}">
+      <div [hidden]="subject.valid || subject.pristine" class="alert alert-danger">subject is invalid</div> 
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-2">
+      <label>PhoneNum:</label>
+  
+  <input type="text" class="form-control"  id="phonenumber" name="phonenumber" #phonenumber="ngModel" [(ngModel)]="stafflist.phonenumber" required pattern="[0-9]{10}">
+      <div [hidden]="phonenumber.valid || phonenumber.pristine" class="alert alert-danger">Phone number is invalid</div>
+   </div>
+  </div>
+
+  <div class="form-group row">
+      <div class="col-xs-2">
+        <label>Email:</label>
+  <input type="text" class="form-control"  id="email" name="email" #email="ngModel" [(ngModel)]="stafflist.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        <div [hidden]="email.valid || email.pristine" class="alert alert-danger">email is invalid</div>
+     </div>
+    </div>
+
+  <div class="form-group row">
+      <div class="col-xs-2">
+        <label> User Name:</label>
+        <input type="text" class="form-control"  id="userName" name="userName" #userName="ngModel" [(ngModel)]="stafflist.userName" required pattern="[A-Za-z]{3,}">
+        <div [hidden]="userName.valid || userName.pristine" class="alert alert-danger">username is invalid</div>
+     </div>
+    </div>
+  
+    <div class="form-group row">
+      <div class="col-xs-2">
+        <label>Password:</label>
+        <input type="password" class="form-control"  id="password" name="password" #password="ngModel" [(ngModel)]="stafflist.password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+        <div [hidden]="password.valid || password.pristine" class="alert alert-danger">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
+     </div>
+    </div>
+
+    <button type="submit" [disabled]="!loginform.form.valid" class="btn btn-primary" (click)="addToDatabase()" >Add Staff to List</button>
+    
+  </form>
+  

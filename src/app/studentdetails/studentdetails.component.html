@@ -1,0 +1,54 @@
+<div class="jumbotron">
+
+    <h2>List of Students</h2>
+    <button class="btn btn-info" (click)="addStudent()">Add</button>
+</div>
+
+<div class="bg-info text-white">
+    <div class="container" >
+        <h1>{{title}}</h1>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="search-list">
+          <label>Filter</label>
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="Search by Department">
+            </div>
+    <table class="table table-striped" border="2">
+      
+    <th>ID</th>
+    <th>Student First Name</th>
+    <th>Student Second Name</th>
+    <th>Phone Number</th>
+    <th>UserName</th>
+    <th>Password</th>
+    <th>Email</th>
+    <th>Student Department</th>
+    <th colspan="2">Action</th>
+    
+
+    
+    <tr *ngFor="let stu of studentList | filter:searchText">
+    <td>{{stu.id}}</td>
+    <td>{{stu.studFName}}</td>
+    <td>{{stu.studLName}}</td>
+    <td>{{stu.phonenum}}</td>
+    <td>{{stu.userName}}</td>
+    <td>{{stu.password}}</td>
+    <td>{{stu.email}}</td>
+    <td>{{stu.studdepart}}</td>
+    <td><button (click)="deleteStudent(stu.id)" class="btn btn-danger">Delete</button></td>
+    <td><button (click)="editStudent()" class="btn btn-warning">Edit</button></td>
+    
+    
+    
+    
+    </tr>
+    
+    </table>
+
+    <button class="btn btn-danger" (click)="studentLogout()">Logout</button>
+    
+    
+    </div>

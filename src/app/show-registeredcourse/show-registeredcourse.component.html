@@ -1,0 +1,41 @@
+
+<div>
+  <h2> Registered Course</h2>
+</div>
+
+
+
+<table class="table table-striped" border="2">
+    
+    <th>ID</th>
+    <th>Course Name</th>
+    <th>Faculty Name</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Capacity</th>
+    <th>Register</th>
+  
+    
+  
+    
+    <tr *ngFor="let reg of register | filter:searchText;">
+        <ng-container *ngIf="reg.registered!=0">
+            <td>{{reg.id}}</td>
+            <td>{{reg.courseName}}</td>
+            <td>{{reg.facultyName}}</td>
+            <td>{{reg.startDate}}</td>
+            <td>{{reg.endDate}}</td>
+            <td>{{reg.capacity}}</td>
+            <td>{{reg.registered}}</td>
+    
+    
+  </ng-container>
+  
+    
+  
+    
+    
+    </tr>
+    
+    </table>
+  

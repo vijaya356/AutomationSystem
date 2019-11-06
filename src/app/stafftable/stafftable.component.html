@@ -1,0 +1,42 @@
+<div class="jumbotron" >
+
+    <h2>Staff Time Table</h2>
+
+</div>    
+
+<div class="bg-info text-white">
+    <div class="container" >
+        <h1>{{title}}</h1>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="search-list">
+          <label>Filter</label>
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="Search by subject">
+            </div>
+    <table class="table table-striped" border="2">
+
+    <th>Id</th>  
+    <th>facultyName</th>
+    <th>Course Name</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    
+    
+    
+    <tr *ngFor="let table of timetable | filter:searchText">
+     <td>{{table.id}}</td> 
+    <td>{{table.facultyName}}</td>
+    <td>{{table.courseName}}</td>
+    <td>{{table.startDate}}</td>
+    <td>{{table.endDate}}</td>
+    
+    
+    
+    </tr>
+    
+    </table>
+    
+<button class="btn btn-danger" (click)="stafftablelogout()">Logout</button>    
+    </div>

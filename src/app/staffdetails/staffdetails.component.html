@@ -1,0 +1,48 @@
+<div class="jumbotron">
+
+    <h2>List of Staff</h2>
+    <button class="btn btn-info" (click)="addStaff()" >Add</button>
+</div>
+
+<div class="bg-info text-white">
+    <div class="container" >
+        <h1>{{title}}</h1>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="search-list">
+          <label>Filter</label>
+            <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+            placeholder="Search by subject">
+            </div>
+    <table class="table table-striped" border="2">
+
+    <th>Id</th>  
+    <th>StaffName</th>
+    <th>Subject</th>
+    <th>Phone Number</th>
+    <th>Email</th>
+    <th>UserName</th>
+    <th>Password</th>
+    <th>Delete</th>
+    
+    
+    <tr *ngFor="let staf of staffList | filter:searchText">
+     <td>{{staf.id}}</td> 
+    <td>{{staf.staffname}}</td>
+    <td>{{staf.subject}}</td>
+    <td>{{staf.phonenumber}}</td>
+    <td>{{staf.email}}</td>
+    <td>{{staf.userName}}</td>
+    <td>{{staf.password}}</td>
+    <button (click)="deleteStaff(staf.id)">Delete</button>
+    
+    
+    </tr>
+    
+    </table>
+
+    <button class="btn btn-danger" (click)="stafflogout()">Logout</button>
+    
+    
+    </div>

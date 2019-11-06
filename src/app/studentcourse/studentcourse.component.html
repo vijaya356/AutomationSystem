@@ -1,0 +1,58 @@
+<div class="jumbotron">
+
+  <h2>Course List</h2>
+  <button class="btn btn-info" (click)="showCourses()">RegisteredCourses</button>
+
+</div>
+
+
+<div class="bg-info text-white">
+  <div class="container" >
+      <h1>{{title}}</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="search-list">
+        <label>Filter</label>
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+          placeholder="Search by Course name">
+          </div>
+  <table class="table table-striped" border="2">
+    
+  <th>ID</th>
+  <th>Couese Name</th>
+  <th>Faculty Name</th>
+  <th>Start Date</th>
+  <th>End Date</th>
+  <th>Capacity</th>
+  <th>Register</th>
+
+  
+  <tr *ngFor="let cours of course | filter:searchText;">
+      <ng-container>
+  <td>{{cours.id}}</td>
+  <td>{{cours.courseName}}</td>
+  <td>{{cours.facultyName}}</td>
+  <td>{{cours.startDate}}</td>
+  <td>{{cours.endDate}}</td>
+  <td>{{cours.capacity}}</td>
+  <td><button id="bttn" (click)="studentregistration(cours)">Register</button></td>
+</ng-container>
+
+<!-- <ng-template #notShow>
+    <p>
+      Show this only if "show" is not true
+    </p>
+  </ng-template> -->
+  
+
+  
+  
+  </tr>
+  
+  </table>
+
+  <button class="btn btn-danger" (click)="studentLog()">Logout</button>
+  
+  
+  </div>

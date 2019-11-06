@@ -1,0 +1,48 @@
+<div class="jumbotron">
+
+  <h2>Course List</h2>
+  <button class="btn btn-info" (click)="addCourse()">Add</button>
+</div>
+
+
+<div class="bg-info text-white">
+  <div class="container" >
+      <h1>{{title}}</h1>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="search-list">
+        <label>Filter</label>
+          <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+          placeholder="Search by Course name">
+          </div>
+  <table class="table table-striped" border="2">
+    
+  <th>ID</th>
+  <th>Couese Name ertyuS</th>
+  <th>Faculty Name</th>
+  <th>Start Date</th>
+  <th>End Date</th>
+  <th>Capacity</th>
+  <th>Delete</th>
+  
+
+  
+  <tr *ngFor="let cours of course | filter:searchText ">
+  <td>{{cours.id}}</td>
+  <td>{{cours.courseName}}</td>
+  <td>{{cours.facultyName}}</td>
+  <td>{{cours.startDate}}</td>
+  <td>{{cours.endDate}}</td>
+  <td>{{cours.capacity}}</td>
+  <button (click)="deleteCourse(cours.id)">Delete</button>
+
+  
+  </tr>
+  
+  </table>
+  
+  
+  <button class="btn btn-danger"(click)="courselogout()">Logout</button>
+
+  </div>

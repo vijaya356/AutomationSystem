@@ -1,0 +1,40 @@
+<html>
+ 
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        body, html {
+          /* height: 100%; */
+          margin: 0;
+        }
+        
+        .bg {
+          /* The image used */
+          background-image: url("/assets/images/251739.jpg");
+        
+          /* Full height */
+          height: 500px; 
+        
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        </style>
+      </head>
+
+<body>
+  <div class="bg">
+<div  class="jumbotron">
+  <h2>Welcome to Student And Staff Automation System</h2>
+
+<button class="btn btn-info" value="User" (click)="adminPage()">Administartion</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button class="btn btn-info" (click)="staffPage()" value="staff">Staff</button>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button class="btn btn-info" (click)="studentPage()" value="student">Student</button>
+<!-- </div> -->
+</div>
+</div>
+</body>
+</html>
