@@ -4,7 +4,7 @@
     <button class="btn btn-info" (click)="addStaff()" >Add</button>
 </div>
 
-<div class="bg-info text-white">
+<!-- <div class="bg-info text-white">
     <div class="container" >
         <h1>{{title}}</h1>
       </div>
@@ -35,7 +35,7 @@
     <td>{{staf.email}}</td>
     <td>{{staf.userName}}</td>
     <td>{{staf.password}}</td>
-    <button (click)="deleteStaff(staf.id)">Delete</button>
+    <button class="btn btn-danger" (click)="deleteStaff(staf.id)">Delete</button>
     
     
     </tr>
@@ -45,4 +45,70 @@
     <button class="btn btn-danger" (click)="stafflogout()">Logout</button>
     
     
-    </div>
+    </div> -->
+
+    <div class="wrapper">
+        <div fxLayout fxLayoutAlign="center center">
+            <mat-form-field fxFlex="40%">
+              <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+          </div>
+          
+        <table mat-table [dataSource]="staf" matSort class="mat-elevation-z8">
+      
+      
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="staffname">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> StaffName </th>
+            <td mat-cell *matCellDef="let element"> {{element.staffname}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="subject">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>
+            <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="phonenumber">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> phonenumber </th>
+            <td mat-cell *matCellDef="let element"> {{element.phonenumber}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email  </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="userName">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> UserName </th>
+            <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="password">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Password </th>
+            <td mat-cell *matCellDef="let element"> {{element.password}} </td>
+          </ng-container>
+
+          <ng-container  matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef> Action </th>
+              <td mat-cell *matCellDef="let element"><button  (click)="deleteStaff(element.id)" mat-stroked-button color="primary">DELETE</button> </td>
+            </ng-container>                  
+        
+    
+        
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+        
+          <!-- Angular 8 pagination -->
+          <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+          
+          <button class="btn btn-danger" (click)="stafflogout()">Logout</button>      
+          </div>
+      
+         
+      

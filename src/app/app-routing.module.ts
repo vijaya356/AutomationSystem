@@ -17,6 +17,7 @@ import { AuthGuard } from './auth.guard';
 import { AdminguardGuard } from './adminguard.guard';
 import { StaffguardGuard } from './staffguard.guard';
 import { ShowRegisteredcourseComponent } from './show-registeredcourse/show-registeredcourse.component';
+import { EditpageComponent } from './editpage/editpage.component';
 
 const routes: Routes = [
   {path : '',redirectTo: '/homepage', pathMatch:'full'},
@@ -33,7 +34,8 @@ const routes: Routes = [
     {path : 'addcourse',component : AddcourseComponent},
     {path : 'studentcourse',component :StudentcourseComponent, canActivate:[AuthGuard]},
     {path : 'stafftable',component :StafftableComponent, canActivate:[StaffguardGuard]},
-    {path : 'showregisteredcourse', component :ShowRegisteredcourseComponent}
+    {path : 'showregisteredcourse', component :ShowRegisteredcourseComponent, canActivate:[AuthGuard]},
+    {path :'editpage', component :EditpageComponent}
 
 ];
 

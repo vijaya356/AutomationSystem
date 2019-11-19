@@ -21,6 +21,10 @@ import { StudentcourseComponent } from './studentcourse/studentcourse.component'
 import { StafftableComponent } from './stafftable/stafftable.component';
 import { ShowRegisteredcourseComponent } from './show-registeredcourse/show-registeredcourse.component';
 import { RouterModule } from '@angular/router';
+import { EditpageComponent } from './editpage/editpage.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
+import { MatButtonModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,8 @@ import { RouterModule } from '@angular/router';
     AddcourseComponent,
     StudentcourseComponent,
     StafftableComponent,
-    ShowRegisteredcourseComponent
+    ShowRegisteredcourseComponent,
+    EditpageComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,12 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    RouterModule
+    RouterModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    AngularMaterialModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

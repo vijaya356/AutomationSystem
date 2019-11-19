@@ -1,5 +1,5 @@
 export class StudentList{
-
+    id:number
     studFName:string;
     studLName:string;
     phonenum:string;

@@ -1,0 +1,43 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+
+  </li>
+
+</ul>
+<div class="container ">
+  <h2>Edit Student</h2>
+  <table class="table table-striped">
+    <tr>
+      <td>id</td>
+      <td>studFName</td>
+      <td>studLName</td>
+      <td>phonenum</td>
+      <td>userName</td>
+      <td>password</td>
+      <td>email</td>
+      <td>studdepart</td>
+      <td colspan="2">Action</td>
+    </tr>
+    <!----------------- Using *ngFor----------------------->
+    <tr>
+      <td><input  name="id" id="id" [(ngModel)]="stud.id" #id="ngModel" disabled></td>
+      <td><input  name="studFName" id="studFName" [(ngModel)]="stud.studFName"
+          #studFName="ngModel"></td>
+      <td><input  name="studLName" [(ngModel)]="stud.studLName"></td>
+      <td><input  name="phonenum" [(ngModel)]="stud.phonenum"></td>
+      <td><input  name="userName" [(ngModel)]="stud.userName"></td>
+      <td><input  name="password" [(ngModel)]="stud.password"></td>
+      <td><input  name="email" [(ngModel)]="stud.email"></td>
+      <td><input  name="studdepart" [(ngModel)]="stud.studdepart"></td>
+      <td><button (click)="editstudent()" class="btn btn-info">Edit</button> </td>
+    </tr>
+    <!-- e="text" name="id" #id="ngModel" class="form-control" [(ngModel)]="choreo.id" disabled value="{{choreo.id}}"></td>
+        <td><input type="text" name="name" #name="ngModel" class="form-control" [(ngModel)]="choreo.name" value="{{choreo.name}}"></td>
+        <td><input type="text" name="age" #age="ngModel" class="form-control" [(ngModel)]="choreo.age" value="{{choreo.age}}"></td>
+        <td><input type="text" name="location" #location="ngModel" class="form-control" [(ngModel)]="choreo.location" value="{{choreo.location}}"></td>
+        <td><input type="text" name="danceforms" #danceforms="ngModel" class="form-control" [(ngModel)]="choreo.danceforms" value="{{choreo.danceforms}}"></td>
+        <td><input type="text" name="session" #session="ngModel" class="form-control" [(ngModel)]="choreo.session" value="{{choreo.session}}"></td>
+        <td><input type="text" name="pricetable" #pricetable="ngModel" class="form-control" [(ngModel)]="choreo.pricetable" value="{{choreo.pricetable}}"></td> -->
+
+  </table>
+</div>

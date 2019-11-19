@@ -2,7 +2,9 @@ export class Course{
     id:number;
     courseName:string;
     facultyName:string;
-    startDate:string;
+    sDate:Date;
+    startDate:string
+    eDate:Date;
     endDate:string;
     capacity:string;
     registered:boolean;

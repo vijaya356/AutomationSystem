@@ -23,7 +23,6 @@ export class AddstudentComponent implements OnInit {
   }
 
   addToDatabase(){
-    // console.log(this.registration)
     this.service.addToList(this.studentlist).subscribe();
     alert("student added Successfully")
     this.router.navigate(['/studentdetails'])

@@ -1,14 +1,14 @@
 <h3 align="center">Student Registration</h3>
 <form id="form_login" (ngSubmit)="onSubmit(loginform)" #loginform="ngForm" style="padding-left: 550px">
   <div class="form-group row">
-    <div class="col-xs-2">
+    <div class="col-xs-4">
       <label> StudentFirstName:</label>
       <input type="text" class="form-control"  id="studFName" name="studFName" #studFName="ngModel" [(ngModel)]="studentlist.studFName" required pattern="[A-Za-z]{3,}">
-      <div [hidden]="studFName.valid || studFName.pristine" class="alert alert-danger">FirstName is invalid</div>
+      <div [hidden]="studFName.valid || studFName.pristine" class="alert alert-danger">FirstName should have minimum 3 letters</div>
    </div>
   </div>
     <div class="form-group row">
-        <div class="col-xs-2">
+        <div class="col-xs-4">
       <label>studentLastName:</label>
       <input type="Text" class="form-control" id="studLName" name="studLName" #studLName="ngModel" [(ngModel)]="studentlist.studLName" required>
       <div [hidden]="studLName.valid || studLName.pristine" class="alert alert-danger">Last name is invalid</div> 
@@ -16,7 +16,7 @@
   </div>
 
   <div class="form-group row">
-    <div class="col-xs-2">
+    <div class="col-xs-4">
       <label>PhoneNum:</label>
       <input type="text" class="form-control"  id="phonenum" name="phonenum" #phonenum="ngModel" [(ngModel)]="studentlist.phonenum" required pattern="[0-9]{10}">
       <div [hidden]="phonenum.valid || phonenum.pristine" class="alert alert-danger">Phone number is invalid</div>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="form-group row">
-    <div class="col-xs-2">
+    <div class="col-xs-4">
       <label> User Name:</label>
       <input type="text" class="form-control"  id="userName" name="userName" #userName="ngModel" [(ngModel)]="studentlist.userName" required pattern="[A-Za-z]{3,}">
       <div [hidden]="userName.valid || userName.pristine" class="alert alert-danger">username is invalid</div>
@@ -32,7 +32,7 @@
   </div>
 
   <div class="form-group row">
-    <div class="col-xs-2">
+    <div class="col-xs-4">
       <label>Password:</label>
       <input type="password" class="form-control"  id="password" name="password" #password="ngModel" [(ngModel)]="studentlist.password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
       <div [hidden]="password.valid || password.pristine" class="alert alert-danger">Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</div>
@@ -40,33 +40,36 @@
   </div>
 
   <div class="form-group row">
-    <div class="col-xs-2">
+    <div class="col-xs-4">
       <label>Email:</label>
       <input type="text" class="form-control"  id="email" name="email" #email="ngModel" [(ngModel)]="studentlist.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
       <div [hidden]="email.valid || email.pristine" class="alert alert-danger">email is invalid</div>
    </div>
   </div>
 
-  <div class="form-group row">
-    <div class="col-xs-2">
+  <!-- <div class="form-group row">
+    <div class="col-xs-4">
       <label>Student Department:</label>
       <input type="text" class="form-control"  id="studdepart" name="studdepart" #studdepart="ngModel" [(ngModel)]="studentlist.studdepart" required>
       <div [hidden]="studdepart.valid || studdepart.pristine" class="alert alert-danger">department is invalid</div>
    </div>
-  </div>
-  <!-- <div>
-  <label>Student Department</label><br>
-  <input type="text" class="form-control"  id="studdepart" name="studdepart" #studdepart="ngModel" [(ngModel)]="studentlist.studdepart" required>
-    <select>
+  </div> -->
+   <div  class="form-group row">
+      <div class="col-xs-4">
+        <label>Student Department</label>
+        <select  type="text" class="form-control"  id="studdepart" name="studdepart" #studdepart="ngModel" [(ngModel)]="studentlist.studdepart" required>>
       <option value="select">select</option>
       <option value="electrical">Electrical</option>
       <option value="computerScience">computerScience</option>
       <option value="Mechanical">Mechanical</option>
       <option value="Electronics&Communication">Electronics&Communication</option>
       <option value="InformationScience">InformationScience</option>
-    </select>
-  </div> -->
+    </select><br>
+  
+
     <button type="submit" [disabled]="!loginform.form.valid" class="btn btn-primary" (click)="addToDatabase()" >Add Student to List</button>
-    
+   </div>
+   </div>
+
   </form>
   

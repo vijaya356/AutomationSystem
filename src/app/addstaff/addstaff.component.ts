@@ -20,7 +20,6 @@ export class AddstaffComponent implements OnInit {
   }
 
   addToDatabase(){
-    // console.log(this.registration)
     this.service.addToTable(this.stafflist).subscribe();
     alert("staff added Successfully")
     this.router.navigate(['/staffdetails'])

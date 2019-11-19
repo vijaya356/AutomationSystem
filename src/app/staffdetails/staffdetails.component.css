@@ -3,3 +3,11 @@
     left: 1150px;
     top: 50px;
   } */
+
+  table {
+    width: 100%;
+  }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }

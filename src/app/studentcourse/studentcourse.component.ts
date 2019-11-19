@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AutomationService } from '../services/automation.service';
 import { Observable } from 'rxjs';
 import { Registration } from '../registration';
 import { Course } from '../course';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-studentcourse',
@@ -15,11 +16,19 @@ export class StudentcourseComponent implements OnInit {
   course: Course[]=[];
 
   reg: Registration
+  cours: MatTableDataSource<Course>;
 
   constructor(private router: Router, private autoservice: AutomationService) {
     this.reg = new Registration();
     // this.course=new Course();
+
   }
+
+  displayedColumns: string[] = ['id', 'courseName', 'facultyName', 'startDate', 'endDate', 'capacity','action'];
+  dataSource
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   ngOnInit() {
     this.reloadData();
@@ -27,8 +36,11 @@ export class StudentcourseComponent implements OnInit {
 
   reloadData() {
     this.autoservice.getcourseList().subscribe((data) => {
-      console.log(data)
-      this.course = data
+      this.course = data;
+      this.cours = new MatTableDataSource(this.course);
+      this.cours.paginator = this.paginator;
+      this.cours.sort = this.sort;
+
     });
   }
 
@@ -39,6 +51,7 @@ export class StudentcourseComponent implements OnInit {
 
 
   studentregistration(cours: Course) {
+    console.log(cours)
     this.reg.userName = sessionStorage.getItem("studentUserName");
     this.reg.courseId = cours.id;
     this.autoservice.registerStudent(this.reg).subscribe();
@@ -59,5 +72,8 @@ export class StudentcourseComponent implements OnInit {
     
    this.router.navigate(['/showregisteredcourse'])
 
+  }
+  doFilter = (value: string) => {
+    this.cours.filter = value.trim().toLocaleLowerCase();
   }
 }

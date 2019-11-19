@@ -9,6 +9,7 @@ import { Course } from '../course';
   providedIn: 'root'
 })
 export class AutomationService {
+  studentList: StudentList;
   getCourcesWithUserName(userName: string) :Observable<any>{
     return this.http.get(`${this.baseUrl}/getCourcesWithUserName/${userName}`);
   }
@@ -70,7 +71,7 @@ export class AutomationService {
     return this.http.post(`${this.baseUrl}`+`/registerStudentCourse/`,cours);
     
   }
-  deleteStudent(id:any){
+  deleteStudent(id:any){  
     return this.http.delete(`${this.baseUrl}/deletebyid/${id}`);
 
   }
@@ -104,6 +105,18 @@ export class AutomationService {
   getRegisteredCourse(){
     return this.http.get(`${this.baseUrl}/showRegisteredCourse`);
   }
+  editstudent(studentToBeEdit : StudentList){
+    return this.http.post(`${this.baseUrl}/editStudent`,studentToBeEdit);
 
+  }
 
+  setStudList(studentList  :StudentList)
+  {
+    this.studentList = studentList
+  }
+
+  getStudList()
+  {
+    return this.studentList;
+  }
 }
